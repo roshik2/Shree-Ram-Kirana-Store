@@ -1,0 +1,147 @@
+import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { MapPin, Phone, Mail, ThumbsUp } from 'lucide-react';
+
+export default function HomePage() {
+  return (
+    <div className="min-h-screen bg-white text-gray-900 font-sans">
+      <header className="bg-green-900 text-white shadow p-4 flex justify-between items-center">
+        <h1 className="text-2xl font-bold">Shree Ram Kirana Store</h1>
+        <nav className="space-x-6 text-sm font-medium">
+          <a href="#home" className="hover:text-yellow-300 transition">Home</a>
+          <a href="#products" className="hover:text-yellow-300 transition">Products</a>
+          <a href="#services" className="hover:text-yellow-300 transition">Services</a>
+          <a href="#about" className="hover:text-yellow-300 transition">About</a>
+          <a href="#testimonials" className="hover:text-yellow-300 transition">Testimonials</a>
+          <a href="#contact" className="hover:text-yellow-300 transition">Contact</a>
+        </nav>
+      </header>
+
+      <section id="home" className="text-center py-24 bg-cover bg-center bg-[url('https://source.unsplash.com/featured/?grocery-store,india')] text-white backdrop-brightness-75">
+        <div className="bg-green-900/70 p-6 rounded-xl inline-block">
+          <h2 className="text-5xl font-extrabold mb-4">Welcome to Shree Ram Kirana Store</h2>
+          <p className="text-lg max-w-2xl mx-auto">Your trusted partner for all household and grocery needs in Bharatpur. Quality, reliability, and friendly service at your doorstep.</p>
+        </div>
+      </section>
+
+      <section id="products" className="py-20 px-4 max-w-6xl mx-auto">
+        <h3 className="text-4xl font-bold text-center mb-12 text-green-900">Our Products</h3>
+        <p className="text-center max-w-3xl mx-auto text-gray-700 mb-8">We stock a wide variety of grocery items, fresh produce, and daily essentials to keep your home running smoothly. Our shelves are always full of fresh and quality products at competitive prices.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[{
+            name: 'Basmati Rice',
+            desc: 'Premium long-grain rice for perfect meals.',
+            price: '₹90/kg',
+            img: 'https://source.unsplash.com/featured/?basmati-rice'
+          }, {
+            name: 'Wheat Flour',
+            desc: 'Freshly milled whole wheat atta.',
+            price: '₹40/kg',
+            img: 'https://source.unsplash.com/featured/?wheat-flour'
+          }, {
+            name: 'Cooking Oil',
+            desc: 'Pure sunflower and mustard oils.',
+            price: '₹120/ltr',
+            img: 'https://source.unsplash.com/featured/?cooking-oil'
+          }, {
+            name: 'Spices Pack',
+            desc: 'Aromatic spice blends for your kitchen.',
+            price: '₹60/pack',
+            img: 'https://source.unsplash.com/featured/?indian-spices'
+          }, {
+            name: 'Pulses',
+            desc: 'High-quality lentils and legumes.',
+            price: '₹80/kg',
+            img: 'https://source.unsplash.com/featured/?lentils'
+          }, {
+            name: 'Snacks & Biscuits',
+            desc: 'Wide range of snacks and biscuits.',
+            price: 'From ₹10',
+            img: 'https://source.unsplash.com/featured/?biscuits-snacks'
+          }].map((item, idx) => (
+            <Card key={idx} className="rounded-2xl shadow-lg hover:scale-105 transition-transform">
+              <img src={item.img} alt={item.name} className="h-56 w-full object-cover rounded-t-2xl" />
+              <CardContent className="p-5 text-center">
+                <h4 className="font-semibold text-xl mb-2 text-green-900">{item.name}</h4>
+                <p className="text-gray-600">{item.desc}</p>
+                <p className="mt-3 font-bold text-green-700">{item.price}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section id="services" className="py-20 px-4 max-w-5xl mx-auto text-center">
+        <h3 className="text-4xl font-bold mb-8 text-green-900">Our Services</h3>
+        <p className="text-gray-700 max-w-3xl mx-auto mb-6">We believe in going the extra mile to ensure convenience and satisfaction for our customers. Our services include home delivery, bulk order handling for events and businesses, and custom packing to suit your needs.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+          {['Home Delivery', 'Bulk Orders', 'Custom Packaging'].map((service, idx) => (
+            <div key={idx} className="bg-green-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+              <ThumbsUp className="w-10 h-10 text-green-700 mb-4 mx-auto" />
+              <h4 className="text-xl font-semibold text-green-900 mb-2">{service}</h4>
+              <p className="text-gray-600">Professional and reliable {service.toLowerCase()} to make your shopping experience seamless and stress-free.</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="about" className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <h3 className="text-4xl font-bold mb-8 text-green-900">About Us</h3>
+        <img src="https://source.unsplash.com/featured/?kirana-store-interior" alt="Store Interior" className="rounded-2xl shadow-lg mx-auto mb-6 max-h-96 object-cover" />
+        <p className="text-lg text-gray-700 leading-relaxed">
+          Shree Ram Kirana Store has stood as a pillar of trust and reliability in Bharatpur for over a decade. Our commitment to quality and customer service has helped us become a household name. We source only the best products and maintain rigorous standards to ensure your family gets nothing but the finest. Whether it’s everyday groceries or specialty items, we aim to bring you the best shopping experience with friendly faces and a community spirit.
+        </p>
+      </section>
+
+      <section id="testimonials" className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <h3 className="text-4xl font-bold mb-8 text-green-900">Testimonials</h3>
+        <div className="space-y-8">
+          {[{
+            name: 'Rahul S.',
+            comment: 'Excellent service and fresh products every time I shop here. Highly recommend!',
+          }, {
+            name: 'Anita G.',
+            comment: 'The home delivery service is a lifesaver. Great variety and fair pricing.',
+          }, {
+            name: 'Vikram P.',
+            comment: 'A trusted store in our area. The staff are always polite and helpful.',
+          }].map((t, idx) => (
+            <div key={idx} className="bg-green-50 p-6 rounded-2xl shadow">
+              <p className="text-gray-700 italic">"{t.comment}"</p>
+              <p className="mt-4 font-semibold text-green-900">- {t.name}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact" className="py-20 px-4 max-w-4xl mx-auto text-center">
+        <h3 className="text-4xl font-bold mb-8 text-green-900">Contact Us</h3>
+        <div className="space-y-5 text-gray-700">
+          <div className="flex justify-center items-center gap-3">
+            <MapPin className="w-5 h-5 text-green-700" />
+            <span>Sara's Chauraha, Bharatpur, Rajasthan</span>
+          </div>
+          <div className="flex justify-center items-center gap-3">
+            <Phone className="w-5 h-5 text-green-700" />
+            <span>+91 87400 24140</span>
+          </div>
+          <div className="flex justify-center items-center gap-3">
+            <Mail className="w-5 h-5 text-green-700" />
+            <span>shreeramkirana@bharatpur.in</span>
+          </div>
+          <iframe
+            title="Shree Ram Kirana Store Location"
+            className="w-full h-64 rounded-2xl mt-8 border-0 shadow-lg"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14113.95140320254!2d77.4930!3d27.2173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zMjfCsDEzJzAzLjMiTiA3N8KwMjknMzMuMyJF!5e0!3m2!1sen!2sin!4v1612345678901"
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+
+      <footer className="text-center text-sm py-6 bg-green-900 text-white mt-12">
+        © 2025 Shree Ram Kirana Store. All rights reserved.
+      </footer>
+    </div>
+  );
+}
